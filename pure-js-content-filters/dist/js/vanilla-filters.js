@@ -54,8 +54,7 @@ function philterContent(philtersContainer, resultsContainer, userOptions) {
 
   // set the initial state of all results to active (display all results by default)
   var resultsParent = document.querySelector(resultsContainer);
-  var results = [].slice.call(resultsParent.children);
-  console.log(results);
+  var results = Array.prototype.slice.call(resultsParent.children);
 
   results.forEach(function (item) {
     item.classList.add('philter-active');
@@ -66,9 +65,9 @@ function philterContent(philtersContainer, resultsContainer, userOptions) {
 
   if (options.surpriseTarget !== '') {
     // if user is including Surprise Me functionality, don't add the filter click function to it
-    philterLinks = Array.from(document.querySelectorAll(philtersContainer + ' a:not(' + options.surpriseTarget + ')'));
+    philterLinks = Array.prototype.slice.call(document.querySelectorAll(philtersContainer + ' a:not(' + options.surpriseTarget + ')'));
   } else {
-    philterLinks = Array.from(document.querySelectorAll(philtersContainer + ' a'));
+    philterLinks = Array.prototype.slice.call(document.querySelectorAll(philtersContainer + ' a'));
   }
 
   var _iteratorNormalCompletion = true;
@@ -115,7 +114,7 @@ function philterContent(philtersContainer, resultsContainer, userOptions) {
       var _iteratorError2 = undefined;
 
       try {
-        for (var _iterator2 = Array.from(document.querySelectorAll('.activate-philter'))[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+        for (var _iterator2 = Array.prototype.slice.call(document.querySelectorAll('.activate-philter'))[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
           var reset = _step2.value;
 
           reset.classList.remove('activate-philter');
@@ -156,7 +155,7 @@ function philterContent(philtersContainer, resultsContainer, userOptions) {
       var _iteratorError3 = undefined;
 
       try {
-        for (var _iterator3 = Array.from(document.querySelectorAll('.philter-active'))[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+        for (var _iterator3 = Array.prototype.slice.call(document.querySelectorAll('.philter-active'))[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
           var hideEm = _step3.value;
 
           hideEm.classList.remove('philter-active');
@@ -219,7 +218,7 @@ function philterContent(philtersContainer, resultsContainer, userOptions) {
         var _iteratorError5 = undefined;
 
         try {
-          for (var _iterator5 = Array.from(activeFilters)[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+          for (var _iterator5 = Array.prototype.slice.call(activeFilters)[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
             var filter = _step5.value;
 
             if (single.classList.contains(filter)) {
