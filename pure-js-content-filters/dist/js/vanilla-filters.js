@@ -54,7 +54,8 @@ function philterContent(philtersContainer, resultsContainer, userOptions) {
 
   // set the initial state of all results to active (display all results by default)
   var resultsParent = document.querySelector(resultsContainer);
-  var results = Array.from(resultsParent.children);
+  var results = [].slice.call(resultsParent.children);
+  console.log(results);
 
   results.forEach(function (item) {
     item.classList.add('philter-active');
