@@ -10,13 +10,11 @@ function philterContent(philtersContainer, resultsContainer, userOptions) {
   *********************/
 
   var optionDefaults = {
-    viewFilters: 'View Filters',
-    hideFilters: 'Hide Filters',
+    viewFilters: 'View Filters', // Customize text for View Filters action
+    hideFilters: 'Hide Filters', // Customize text for Hide Filters action
     clearTarget: '', // Clear Filters element id or class if desired. Leave as empty string to exclude from your filters.
-    clearFilters: 'Clear Filters',
     surpriseTarget: '', // Surprise element id or class if desired. Leave as empty string to exclude from your filters.
-    surpriseMe: 'Surprise Me',
-    warningMsg: 'Whoops! Looks like your search is too narrow. Try removing a selected filter or clear all filters to try again.'
+    warningMsg: 'Whoops! Looks like your search is too narrow. Try removing a selected filter or clear all filters to try again.' // Customize warning message
   };
 
   // combine default and user set options
@@ -130,8 +128,6 @@ function philterContent(philtersContainer, resultsContainer, userOptions) {
   }
 
   if (options.clearTarget !== '') {
-    document.querySelector(options.clearTarget).innerHTML = options.clearFilters;
-
     document.querySelector(options.clearTarget).addEventListener('click', function (e) {
       e.preventDefault();
       // clear all activated filters and reset results upon click of Clear Filters link
@@ -166,8 +162,6 @@ function philterContent(philtersContainer, resultsContainer, userOptions) {
 
   // "Surprise me" functionality -- add in if user has set surpriseTarget
   if (options.surpriseTarget !== '') {
-    document.querySelector(options.surpriseTarget).innerHTML = options.surpriseMe;
-
     document.querySelector(options.surpriseTarget).addEventListener('click', function (e) {
       e.preventDefault();
 
