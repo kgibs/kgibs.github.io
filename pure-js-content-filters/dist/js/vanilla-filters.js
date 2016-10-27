@@ -137,51 +137,25 @@ function philterContent(philtersContainer, resultsContainer, userOptions) {
     }
 
     // loop through results to show only those with a class of the activated filter(s)
-    var _iteratorNormalCompletion = true;
-    var _didIteratorError = false;
-    var _iteratorError = undefined;
+    results.forEach(function (item) {
+      var showThis = true;
 
-    try {
-      var _loop = function _loop() {
-        var single = _step.value;
-
-        var showThis = true;
-
-        Array.prototype.slice.call(activeFilters).forEach(function (item) {
-          if (single.classList.contains(item)) {
-            showThis;
-          } else {
-            showThis = false;
-          }
-        });
-
-        if (showThis) {
-          single.classList.add('philter-active');
+      Array.prototype.slice.call(activeFilters).forEach(function (newItem) {
+        if (item.classList.contains(newItem)) {
+          showThis;
         } else {
-          single.classList.remove('philter-active');
+          showThis = false;
         }
-      };
+      });
 
-      for (var _iterator = results[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-        _loop();
+      if (showThis) {
+        item.classList.add('philter-active');
+      } else {
+        item.classList.remove('philter-active');
       }
+    });
 
-      // if there are no results with the activated filter(s), show the warning / error message
-    } catch (err) {
-      _didIteratorError = true;
-      _iteratorError = err;
-    } finally {
-      try {
-        if (!_iteratorNormalCompletion && _iterator.return) {
-          _iterator.return();
-        }
-      } finally {
-        if (_didIteratorError) {
-          throw _iteratorError;
-        }
-      }
-    }
-
+    // if there are no results with the activated filter(s), show the warning / error message
     var warningAlert = document.querySelector('#philter-warning');
 
     if (document.querySelectorAll('.result.philter-active').length === 0) {
