@@ -54,14 +54,14 @@ function philterContent(philtersContainer, resultsContainer, userOptions) {
 
   // set the initial state of all results to active (display all results by default)
   var resultsParent = document.querySelector(resultsContainer);
-  var results = resultsParent.children;
+  var results = Array.from(resultsParent.children);
 
   var _iteratorNormalCompletion = true;
   var _didIteratorError = false;
   var _iteratorError = undefined;
 
   try {
-    for (var _iterator = Array.prototype.slice.call(results)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+    for (var _iterator = results[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
       var result = _step.value;
 
       result.classList.add('philter-active');
@@ -87,9 +87,9 @@ function philterContent(philtersContainer, resultsContainer, userOptions) {
 
   if (options.surpriseTarget !== '') {
     // if user is including Surprise Me functionality, don't add the filter click function to it
-    philterLinks = Array.prototype.slice.call(document.querySelectorAll(philtersContainer + ' a:not(' + options.surpriseTarget + ')'));
+    philterLinks = Array.from(document.querySelectorAll(philtersContainer + ' a:not(' + options.surpriseTarget + ')'));
   } else {
-    philterLinks = Array.prototype.slice.call(document.querySelectorAll(philtersContainer + ' a'));
+    philterLinks = Array.from(document.querySelectorAll(philtersContainer + ' a'));
   }
 
   var _iteratorNormalCompletion2 = true;
@@ -136,7 +136,7 @@ function philterContent(philtersContainer, resultsContainer, userOptions) {
       var _iteratorError3 = undefined;
 
       try {
-        for (var _iterator3 = Array.prototype.slice.call(document.querySelectorAll('.activate-philter'))[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+        for (var _iterator3 = Array.from(document.querySelectorAll('.activate-philter'))[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
           var reset = _step3.value;
 
           reset.classList.remove('activate-philter');
@@ -177,7 +177,7 @@ function philterContent(philtersContainer, resultsContainer, userOptions) {
       var _iteratorError4 = undefined;
 
       try {
-        for (var _iterator4 = Array.prototype.slice.call(document.querySelectorAll('.philter-active'))[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+        for (var _iterator4 = Array.from(document.querySelectorAll('.philter-active'))[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
           var hideEm = _step4.value;
 
           hideEm.classList.remove('philter-active');
@@ -230,7 +230,7 @@ function philterContent(philtersContainer, resultsContainer, userOptions) {
     var _iteratorError5 = undefined;
 
     try {
-      for (var _iterator5 = Array.prototype.slice.call(results)[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+      for (var _iterator5 = results[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
         var single = _step5.value;
 
         var showThis = true;
@@ -240,7 +240,7 @@ function philterContent(philtersContainer, resultsContainer, userOptions) {
         var _iteratorError6 = undefined;
 
         try {
-          for (var _iterator6 = Array.prototype.slice.call(activeFilters)[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+          for (var _iterator6 = Array.from(activeFilters)[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
             var filter = _step6.value;
 
             if (single.classList.contains(filter)) {
